@@ -1,0 +1,116 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h1 class="text-center">Add Movie</h1>
+  <form
+    method="POST"
+    class="mx-auto"
+    style="max-width: 400px"
+    enctype="multipart/form-data"
+  >
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      {{ form.title(class="form-control", placeholder="Enter movie title") }}
+    </div>
+
+    <div class="form-group">
+      <label for="genres">Genres</label>
+      <div class="genre-container">
+        {% for genre in genres %}
+        <div
+          class="genre-item"
+          onclick="toggleGenre(this)"
+          data-value="{{ genre.value }}"
+        >
+          {{ genre.name }}
+        </div>
+        {% endfor %}
+      </div>
+      <input type="hidden" id="selected_genres" name="genres" value="" />
+    </div>
+
+    <div class="form-group">
+      <label for="video_url">Video</label>
+      {{ form.video_url(class="form-control", placeholder="Enter video url") }}
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duration</label>
+      {{ form.duration(class="form-control", placeholder="Enter duration") }}
+    </div>
+
+    <div class="form-group my-2">
+      <label for="poster">Poster Image</label>
+      {{ form.poster(class="form-control-file", placeholder="Upload poster
+      image", accept="image/*") }}
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      {{ form.description(class="form-control", placeholder="Enter movie
+      description") }}
+    </div>
+
+    <div class="form-group">
+      <label for="actors">Actors</label>
+      <select name="actors" id="actors" multiple class="form-control">
+        {% for actor in actors %}
+        <option value="{{ actor.id }}">{{ actor.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </form>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="alert alert-info mt-3">
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} {% endwith %}
+</div>
+<style>
+  .genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .genre-item {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+  }
+
+  .genre-item.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+  .genre-label {
+    text-align: center;
+  }
+</style>
+<script>
+  function toggleGenre(element) {
+    element.classList.toggle("active");
+    updateSelectedGenres();
+  }
+
+  function updateSelectedGenres() {
+    const selectedGenres = Array.from(
+      document.querySelectorAll(".genre-item.active")
+    ).map((item) => item.dataset.value);
+    document.getElementById("selected_genres").value = selectedGenres.join(",");
+  }
+</script>
+{% endblock %}

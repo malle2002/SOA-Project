@@ -1,0 +1,15 @@
+import os
+class Config:
+    SECRET_KEY = 'b6f1ca7169f8a6a79e7e66d2a3f3f0e0f6d02d5a4c021f230e500a37d12a5e20'
+    JWT_SECRET_KEY = 'c4be26a1d2d38a55e3e1773e8ee1872e8978d9a2b32f9e4c7b88d03100c6a7d7'
+    SESSION_TYPE = 'filesystem'  
+    SESSION_PERMANENT = False
+    SESSION_USE_SIGNER = True
+    MAIL_SERVER = 'smtp.office365.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.getenv('MAIL_USERNAME')
+    RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')

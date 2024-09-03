@@ -1,0 +1,28 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "/api/:path*"
+        },
+        {
+            "source": "/locations/:id",
+            "destination": "/locations/:id"
+        },
+        {
+            "source": "/movies/:id",
+            "destination": "/movies/:id"
+        },
+        {
+            "source": "/cinemas/:id",
+            "destination": "/cinemas/:id"
+        },
+        {
+            "source": "/users/:id",
+            "destination": "/users/:id"
+        },
+        {
+            "source": "/tickets/:id",
+            "destination": "/tickets/:id"
+        }
+    ]
+}

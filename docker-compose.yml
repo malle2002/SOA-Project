@@ -1,0 +1,45 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - kong-net
+
+  user-service:
+    build:
+      context: user_service
+      dockerfile: Dockerfile
+    container_name: user-service
+    depends_on:
+      - mongodb
+    ports:
+      - "5000:8081"
+    networks:
+      - kong-net
+
+  cinema-service:
+    build:
+      context: cinema_service
+      dockerfile: Dockerfile
+    container_name: cinemation_backend
+    env_file:
+      - \cinema_service\.env
+    depends_on:
+      - mongodb
+    ports:
+      - "4000:4000"
+    networks:
+      - kong-net
+
+  frontend:
+    build: frontend
+    ports:
+      - 3000:80
+    networks:
+      - web-frontend
+
+networks:
+  kong-net:
+  web-frontend:

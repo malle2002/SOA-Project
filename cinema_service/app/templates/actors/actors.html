@@ -1,0 +1,192 @@
+{% extends "base.html" %} {% block content %}
+<main>
+  <div class="" style="overflow-x: auto">
+    <div></div>
+    <h1 class="text-center">
+      Actors
+      <a href="/admin/actors/add">
+        <svg
+          enable-background="new 0 0 512 512"
+          height="3vh"
+          version="1.1"
+          viewBox="0 0 512 512"
+          width="3vh"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g>
+            <path
+              d="M256.108,3.02c-139.743,0-253,113.257-253,253s113.257,252.995,253,252.995   c139.743,0,253-113.252,253-252.995S395.852,3.02,256.108,3.02z M256.108,488.775c-128.338,0-232.76-104.417-232.76-232.755   c0-128.339,104.422-232.76,232.76-232.76c128.338,0,232.76,104.421,232.76,232.76C488.868,384.358,384.446,488.775,256.108,488.775   z"
+              fill="#37404D"
+            />
+            <polygon
+              fill="#37404D"
+              points="266.228,104.22 245.988,104.22 245.988,245.9 104.98,245.9 104.98,266.14 245.988,266.14    245.988,407.148 266.228,407.148 266.228,266.14 407.908,266.14 407.908,245.9 266.228,245.9  "
+            />
+          </g></svg
+      ></a>
+    </h1>
+    <form method="GET" id="form">
+      <input
+        type="text"
+        class="form-control"
+        name="substring"
+        placeholder="Search..."
+      />
+      <button class="btn bg-transparent">
+        <svg
+          class="me-auto"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          id="search_logo"
+        >
+          <path
+            d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"
+          />
+        </svg>
+      </button>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th />
+          <th />
+        </tr>
+      </thead>
+      <tbody>
+        {% for actor in actors %}
+        <tr>
+          <td>{{ actor.id }}</td>
+          <td>{{ actor.name }}</td>
+          <td>
+            <form action="/admin/actors/{{ actor.id }}/delete" method="POST">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+              <button
+                type="submit"
+                class="btn m-0 p-0"
+                onclick="return confirm('Are you sure you want to delete this actor?')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  id="delete_logo"
+                  viewBox="0 0 30 30"
+                >
+                  <path
+                    d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"
+                  ></path>
+                </svg>
+              </button>
+            </form>
+          </td>
+          <td>
+            <a href="/admin/actors/{{actor.id}}/edit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                id="edit_logo"
+                viewBox="0 0 50 50"
+              >
+                <path
+                  d="M 43.125 2 C 41.878906 2 40.636719 2.488281 39.6875 3.4375 L 38.875 4.25 L 45.75 11.125 C 45.746094 11.128906 46.5625 10.3125 46.5625 10.3125 C 48.464844 8.410156 48.460938 5.335938 46.5625 3.4375 C 45.609375 2.488281 44.371094 2 43.125 2 Z M 37.34375 6.03125 C 37.117188 6.0625 36.90625 6.175781 36.75 6.34375 L 4.3125 38.8125 C 4.183594 38.929688 4.085938 39.082031 4.03125 39.25 L 2.03125 46.75 C 1.941406 47.09375 2.042969 47.457031 2.292969 47.707031 C 2.542969 47.957031 2.90625 48.058594 3.25 47.96875 L 10.75 45.96875 C 10.917969 45.914063 11.070313 45.816406 11.1875 45.6875 L 43.65625 13.25 C 44.054688 12.863281 44.058594 12.226563 43.671875 11.828125 C 43.285156 11.429688 42.648438 11.425781 42.25 11.8125 L 9.96875 44.09375 L 5.90625 40.03125 L 38.1875 7.75 C 38.488281 7.460938 38.578125 7.011719 38.410156 6.628906 C 38.242188 6.246094 37.855469 6.007813 37.4375 6.03125 C 37.40625 6.03125 37.375 6.03125 37.34375 6.03125 Z"
+                ></path>
+              </svg>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Pagination controls -->
+    <div class="pagination">
+      {% if pagination.current_page <= pagination.total_pages %} {% if
+      pagination.current_page > 3 %}
+      <a href="?page=1" class="link-dark">1</a>
+      <a href="?page=2" class="link-dark">2</a>
+      <a href="?page=3" class="link-dark">3</a>
+      {% endif %} {% if pagination.current_page > 4 %}
+      <a href="?page={{ pagination.current_page-1 }}" class="link-dark">
+        {{pagination.current_page-1}}
+      </a>
+      {% endif %} {% if pagination.current_page == 2 %}
+      <a href="?page=1" class="link-dark">1</a>
+      {% endif %} {% if pagination.current_page == 3 %}
+      <a href="?page=1" class="link-dark">1</a>
+      <a href="?page=2" class="link-dark">2</a>
+      {% endif %}
+
+      <a
+        href="?page={{ pagination.current_page }}"
+        class="btn btn-secondary lead"
+        >{{ pagination.current_page }}</a
+      >
+      {% if pagination.current_page+1 <= pagination.total_pages %}
+      <a href="?page={{ pagination.current_page+1 }}" class="link-dark"
+        >{{ pagination.current_page+1}}</a
+      >
+      {% endif %} {% if pagination.current_page < pagination.total_pages and
+      pagination.current_page+1 < pagination.total_pages %}
+      <a href="?page={{pagination.total_pages}}" class="link-dark"
+        >{{pagination.total_pages}}</a
+      >
+      {% endif %} {% endif %} {% if pagination.current_page >
+      pagination.total_pages %}
+      <a href="?page={{pagination.total_pages}}" class="btn btn-secondary"
+        >{{pagination.total_pages}}</a
+      >
+      {% endif %}
+  </div>
+</main>
+<style>
+  @media (max-width: 767.98px) {
+    #form {
+      width: 100%;
+    }
+    #search_logo {
+      width: 5vh;
+      height: 5vh;
+    }
+    #delete_logo {
+      width: 5vh;
+      height: 5vh;
+    }
+    #edit_logo {
+      width: 5vh;
+      height: 5vh;
+    }
+  }
+  @media not (max-width: 767.98px) {
+    #form {
+      width: 20%;
+    }
+    #search_logo {
+      width: 3vh;
+      height: 3vh;
+    }
+    #delete_logo {
+      width: 3vh;
+      height: 3vh;
+    }
+    #edit_logo {
+      width: 3vh;
+      height: 3vh;
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .pagination a {
+    margin: 0 5px;
+  }
+  .pagination span {
+    margin: 0 10px;
+  }
+</style>
+{% endblock%}

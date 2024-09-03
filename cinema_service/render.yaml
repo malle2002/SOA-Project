@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: cinemation-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m waitress --listen=0.0.0.0:8000 wsgi:app

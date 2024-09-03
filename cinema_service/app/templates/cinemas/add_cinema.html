@@ -1,0 +1,303 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h1 class="text-center">Add Cinema</h1>
+  <form
+    method="POST"
+    class="mx-auto"
+    style="max-width: 400px"
+    enctype="multipart/form-data"
+  >
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{ form.name(class="form-control", placeholder="Enter cinema name",
+      autofocus=True) }}
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      {{ form.location(class="form-control", placeholder="Enter location") }}
+    </div>
+
+    <div class="form-group">
+      <label for="working_days">Working Days</label>
+      <div id="working-days-container">
+        {% for working_day_form in form.working_days %}
+        <div class="working-day-row">
+          <div class="form-group">
+            {{ working_day_form.day.label }} {{
+            working_day_form.day(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ working_day_form.start_time.label }} {{
+            working_day_form.start_time(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ working_day_form.end_time.label }} {{
+            working_day_form.end_time(class="form-control") }}
+          </div>
+          <button type="button" class="btn btn-danger remove-day">
+            Remove Day
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      <button type="button" id="add-day" class="btn btn-primary">
+        Add Day
+      </button>
+    </div>
+
+    <div id="seat-groups">
+      {% for seat_group in form.seat_groups %}
+      <div class="seat-group" data-group-id="{{ loop.index }}">
+        <h4>Seat Group {{ loop.index }}</h4>
+        <div class="form-group">
+          {{ seat_group.group_name.label }} {{
+          seat_group.group_name(class="form-control", size=32) }}
+        </div>
+        <div class="form-group">
+          {{ seat_group.rows.label }} {{ seat_group.rows(class="form-control",
+          size=10) }}
+        </div>
+        <div class="form-group">
+          {{ seat_group.columns.label }} {{
+          seat_group.columns(class="form-control", size=10) }}
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary generate-seats"
+          data-group-id="{{ loop.index }}"
+        >
+          Generate Seats
+        </button>
+
+        <div class="seats" id="seats-{{ loop.index }}"></div>
+
+        <button
+          type="button"
+          class="btn btn-danger delete-group"
+          data-group-id="{{ loop.index }}"
+        >
+          Delete Group
+        </button>
+      </div>
+      {% endfor %}
+      <button type="button" id="add-seat-group" class="btn btn-primary mt-2">
+        Add Seat Group
+      </button>
+    </div>
+
+    <div class="form-group my-2">
+      <label for="image">Image</label>
+      {{ form.image(class="form-control-file", placeholder="Upload image",
+      accept="image/*") }}
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </form>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="alert alert-info mt-3">
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} {% endwith %}
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const workingDaysContainer = document.getElementById(
+      "working-days-container"
+    );
+    const addDayButton = document.getElementById("add-day");
+    const seatGroupsContainer = document.getElementById("seat-groups");
+
+    const allDays = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+
+    function getSelectedDays() {
+      const selectedDays = [];
+      const daySelects = document.querySelectorAll(
+        '.working-day-row select[name$="-day"]'
+      );
+      daySelects.forEach((select) => {
+        selectedDays.push(select.value);
+      });
+      return selectedDays;
+    }
+
+    function updateDayOptions() {
+      const selectedDays = getSelectedDays();
+      const selects = document.querySelectorAll(
+        '.working-day-row select[name$="-day"]'
+      );
+      selects.forEach((select) => {
+        const selectedValues = new Set(selectedDays);
+        const options = select.querySelectorAll("option");
+        options.forEach((option) => {
+          option.disabled =
+            selectedValues.has(option.value) && option.value !== select.value;
+        });
+      });
+    }
+
+    addDayButton.addEventListener("click", function () {
+      const dayCount = workingDaysContainer.children.length;
+      if (dayCount >= 7) {
+        alert("Maximum of 7 working days can be added.");
+        return;
+      }
+
+      const newDay = document.createElement("div");
+      newDay.classList.add("working-day-row");
+      newDay.innerHTML = `
+        <div class="form-group">
+          <label for="working_days-${dayCount}-day">Day</label>
+          <select name="working_days-${dayCount}-day" class="form-control" required>
+            <option value="">Select Day</option>
+            ${allDays
+              .map((day) => `<option value="${day}">${day}</option>`)
+              .join("")}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="working_days-${dayCount}-start_time">Start Time</label>
+          <input type="time" name="working_days-${dayCount}-start_time" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="working_days-${dayCount}-end_time">End Time</label>
+          <input type="time" name="working_days-${dayCount}-end_time" class="form-control" required>
+        </div>
+        <button type="button" class="btn btn-danger remove-day">Remove Day</button>
+      `;
+      workingDaysContainer.appendChild(newDay);
+
+      updateDayOptions();
+    });
+
+    workingDaysContainer.addEventListener("click", function (e) {
+      if (e.target.classList.contains("remove-day")) {
+        e.target.parentElement.remove();
+        updateDayOptions();
+      }
+    });
+
+    workingDaysContainer.addEventListener("change", function (e) {
+      if (e.target.tagName === "SELECT") {
+        updateDayOptions();
+      }
+    });
+
+    updateDayOptions();
+
+    function handleGenerateSeatsClick(e) {
+      const groupId = e.target.getAttribute("data-group-id");
+      const seatGroup = document.querySelector(
+        `.seat-group[data-group-id="${groupId}"]`
+      );
+      const rows = parseInt(
+        seatGroup.querySelector('input[name$="-rows"]').value,
+        10
+      );
+      const columns = parseInt(
+        seatGroup.querySelector('input[name$="-columns"]').value,
+        10
+      );
+      const seatsContainer = document.getElementById(`seats-${groupId}`);
+
+      seatsContainer.innerHTML = ""; // Clear existing seats
+
+      for (let row = 1; row <= rows; row++) {
+        for (let column = 1; column <= columns; column++) {
+          const seatDiv = document.createElement("div");
+          seatDiv.className = "seat mt-2";
+          seatDiv.innerHTML = `
+            Row: <span>${row}</span>, Column: <span>${column}</span>
+            <input type="hidden" name="seat_groups-${groupId}-${row}-${column}-row" value="${row}">
+            <input type="hidden" name="seat_groups-${groupId}-${row}-${column}-column" value="${column}">
+            <button type="button" class="btn btn-danger remove-seat">Delete Seat</button>
+          `;
+          seatsContainer.appendChild(seatDiv);
+        }
+      }
+    }
+
+    seatGroupsContainer.addEventListener("click", function (e) {
+      if (e.target.classList.contains("delete-group")) {
+        e.target.closest(".seat-group").remove();
+      }
+      if (e.target.classList.contains("remove-seat")) {
+        e.target.parentElement.remove();
+      }
+    });
+
+    document
+      .getElementById("add-seat-group")
+      .addEventListener("click", function () {
+        const groupCount = seatGroupsContainer.children.length;
+        const newGroupId = groupCount + 1;
+
+        const newSeatGroup = document.createElement("div");
+        newSeatGroup.classList.add("seat-group");
+        newSeatGroup.setAttribute("data-group-id", newGroupId);
+        newSeatGroup.innerHTML = `
+        <h4>Seat Group ${newGroupId}</h4>
+        <div class="form-group">
+          <label for="seat_groups-${newGroupId}-group_name">Group Name</label>
+          <input type="text" name="seat_groups-${newGroupId}-group_name" class="form-control" size="32" required>
+        </div>
+        <div class="form-group">
+          <label for="seat_groups-${newGroupId}-rows">Rows</label>
+          <input type="number" name="seat_groups-${newGroupId}-rows" class="form-control" size="10" required>
+        </div>
+        <div class="form-group">
+          <label for="seat_groups-${newGroupId}-columns">Columns</label>
+          <input type="number" name="seat_groups-${newGroupId}-columns" class="form-control" size="10" required>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary generate-seats mt-2"
+          data-group-id="${newGroupId}"
+        >
+          Generate Seats
+        </button>
+
+        <div class="seats" id="seats-${newGroupId}">
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-danger delete-group mt-2"
+          data-group-id="${newGroupId}"
+        >
+          Delete Group
+        </button>
+      `;
+        seatGroupsContainer.appendChild(newSeatGroup);
+
+        // Add event listener for the newly added "Generate Seats" button
+        newSeatGroup
+          .querySelector(".generate-seats")
+          .addEventListener("click", handleGenerateSeatsClick);
+      });
+
+    // Add event listeners to existing "Generate Seats" buttons
+    document.querySelectorAll(".generate-seats").forEach((button) => {
+      button.addEventListener("click", handleGenerateSeatsClick);
+    });
+  });
+</script>
+
+{% endblock %}

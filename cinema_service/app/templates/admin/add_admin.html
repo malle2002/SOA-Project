@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h1 class="text-center">Add Admin</h1>
+  <form
+    id="add-admin-form"
+    method="POST"
+    class="mx-auto"
+    style="max-width: 400px"
+  >
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      {{ form.username(class="form-control", placeholder="Enter username",
+      autofocus=True) }}
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{ form.password(class="form-control", placeholder="Enter password") }}
+    </div>
+
+    <div class="form-group">
+      <label for="confirm_password">Confirm Password</label>
+      <input
+        name="confirm_password"
+        type="password"
+        required
+        class="form-control"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mt-3">Submit</button>
+  </form>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="alert alert-info mt-3">
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} {% endwith %}
+</div>
+<script>
+  document
+    .getElementById("add-admin-form")
+    .addEventListener("submit", function (e) {
+      var password = document.querySelector('input[name="password"]').value;
+      var confirmPassword = document.querySelector(
+        'input[name="confirm_password"]'
+      ).value;
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert("Passwords do not match. Please try again.");
+      }
+    });
+</script>
+{% endblock %}

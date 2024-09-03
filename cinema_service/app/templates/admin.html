@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<p class="lead fw-bold mt-2" style="font-size: 3vh">
+  THIS IS ADMIN PANEL, BE CAREFUL WITH YOUR ACTIONS. CAN LEAD TO DATA LOSS.
+</p>
+<div
+  class="row justify-content-start justify-content-md-center shadow-lg p-3 mb-5 bg-body rounded"
+>
+  <p class="fw-bold">List of admin privileges</p>
+  <div class="col-12 col-md-6 col-lg-3">
+    <h1 class="text-center">Users</h1>
+    <ul class="list-group">
+      <li class="list-group-item">List or Search users</li>
+      <li class="list-group-item">Add user</li>
+      <li class="list-group-item">Edit user</li>
+      <li class="list-group-item">Delete user</li>
+    </ul>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+    <h1 class="text-center">Cinemas</h1>
+    <ul class="list-group">
+      <li class="list-group-item">List or Search cinemas</li>
+      <li class="list-group-item">Add cinema</li>
+      <li class="list-group-item">Edit cinema</li>
+      <li class="list-group-item">Delete cinema</li>
+    </ul>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+    <h1 class="text-center">Movies</h1>
+    <ul class="list-group">
+      <li class="list-group-item">List or Search movies</li>
+      <li class="list-group-item">Add movie</li>
+      <li class="list-group-item">Edit movie</li>
+      <li class="list-group-item">Delete movie</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<div class="d-flex flex-column justify-content-center">
+  <h1 class="text-center">Edit Actor</h1>
+  <form method="POST" class="mx-auto" style="width: 50vh">
+    <label for="name">Name</label>
+    <input
+      name="name"
+      type="text"
+      class="form-control"
+      value="{{ form.name }}"
+      required
+    />
+    <div class="form-group my-2">
+      {{ form.movies.label }}<br />
+      {{ form.movies(class="form-control") }}<br />
+    </div>
+    <button class="btn btn-primary my-3">Submit</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block content %}
+<div>
+  <h1>Schedule for Cinema {{ cinema_id }}</h1>
+
+  <form id="schedule-form" method="POST">
+    <input type="hidden" name="schedule_day" id="schedule_day" />
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <label for="movie_id">Movie ID:</label>
+    <input type="text" name="movie_id" id="movie_id" required />
+
+    <label for="start_time">Start Time:</label>
+    <input
+      type="datetime-local"
+      name="start_time"
+      id="start_datetime"
+      required
+    />
+
+    <label for="duration">Duration (minutes):</label>
+    <input type="number" name="duration" id="duration" required />
+
+    <label for="price">Price ($):</label>
+    <input type="number" name="price" id="price" required />
+
+    <button type="submit">Add Schedule Item</button>
+  </form>
+
+  {% if message %}
+  <p class="text-danger fw-bold">{{message}}</p>
+  {% endif %}
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Cinema Schedule</h1>
+    <div class="list-group">
+      {% if schedule_data %} {% for schedule_day in
+      schedule_data[0].scheduleDays %}
+      <div class="list-group-item">
+        <h5>{{ schedule_day.day }}</h5>
+        <ul>
+          {% for item in schedule_day.scheduleItems %}
+          <li>{{ item.movieId }}: {{ item.startTime }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %} {% else %}
+      <p>No movies to be shown</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<script>
+  document
+    .getElementById("start_datetime")
+    .addEventListener("change", function () {
+      const date = new Date(this.value);
+      const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const day = daysOfWeek[date.getDay()];
+      console.log(day);
+      document.getElementById("schedule_day").value = day;
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block content %}
+<div class="d-flex flex-column justify-content-center">
+  <h1 class="text-center">Edit User</h1>
+  <form id="edit-user-form" method="POST" class="mx-auto" style="width: 50vh">
+    <label for="username">Username</label>
+    <input
+      name="username"
+      type="text"
+      class="form-control"
+      value="{{form.username}}"
+      required
+    />
+    <label for="email">Email</label>
+    <input
+      name="email"
+      type="email"
+      class="form-control"
+      value="{{form.email}}"
+      required
+    />
+    <label for="password">Password</label>
+    <input name="password" type="password" required class="form-control" />
+    <label for="confirm_password">Confirm Password</label>
+    <input
+      name="confirm_password"
+      type="password"
+      required
+      class="form-control"
+    />
+    <button class="btn btn-primary my-3">Sumbit</button>
+  </form>
+</div>
+<script>
+  document
+    .getElementById("edit-user-form")
+    .addEventListener("submit", function (e) {
+      var password = document.querySelector('input[name="password"]').value;
+      var confirmPassword = document.querySelector(
+        'input[name="confirm_password"]'
+      ).value;
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert("Passwords do not match. Please try again.");
+      }
+    });
+</script>
+
+{% endblock %}

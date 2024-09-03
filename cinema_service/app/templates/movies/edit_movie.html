@@ -1,0 +1,121 @@
+{% extends "base.html" %} {% block content %}
+<div class="py-5 d-flex flex-column justify-content-start">
+  <h1>Edit Movie</h1>
+  <div class="flex row">
+    <form
+      id="edit-user-form"
+      class="col-12 col-md-4"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <label for="title">Title</label>
+      <input
+        name="title"
+        type="text"
+        class="form-control"
+        value="{{context.form.title}}"
+        required
+      />
+      <div class="form-group">
+        <label for="genres">Genres</label>
+        <div class="genre-container">
+          {% for genre in context.genres %}
+          <div
+            class="genre-item {% if genre.name in context.sel_genres %} active {% endif %}"
+            onclick="toggleGenre(this)"
+            data-value="{{ genre.value }}"
+          >
+            {{ genre.name }}
+          </div>
+          {% endfor %}
+        </div>
+        <input type="hidden" id="selected_genres" name="genres" value="" />
+      </div>
+
+      <label for="video_url">Video</label>
+      <input
+        name="video_url"
+        type="text"
+        class="form-control"
+        value="{{context.form.video_url}}"
+        required
+      />
+
+      <label for="duration">Duration</label>
+      <input
+        name="duration"
+        type="number"
+        value="{{context.form.duration}}"
+        required
+        class="form-control"
+      />
+      <label for="poster">Poster</label>
+      <input name="poster" type="file" {% if context.form.poster_url == None
+      %}required{% endif %} class="form-control" />
+
+      <label for="title">Description</label>
+      <input
+        name="description"
+        type="text"
+        class="form-control"
+        value="{{context.form.description}}"
+        required
+      />
+      <div class="form-group">
+        <label for="actors">Actors</label>
+        <select name="actors" id="actors" multiple class="form-control">
+          {% for actor in context.actors %}
+          <option value="{{ actor.id }}">{{ actor.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button class="btn btn-primary my-3">Sumbit</button>
+    </form>
+    <div class="col-1"></div>
+    <img class="img-fluid col-12 col-md-3" src="{{context.poster_url}}" />
+  </div>
+</div>
+<style>
+  .genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .genre-item {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+  }
+
+  .genre-item.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+  .genre-label {
+    text-align: center;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    updateSelectedGenres();
+  });
+  function toggleGenre(element) {
+    element.classList.toggle("active");
+    updateSelectedGenres();
+  }
+
+  function updateSelectedGenres() {
+    const selectedGenres = Array.from(
+      document.querySelectorAll(".genre-item.active")
+    ).map((item) => item.dataset.value);
+    document.getElementById("selected_genres").value = selectedGenres.join(",");
+  }
+</script>
+{% endblock %}

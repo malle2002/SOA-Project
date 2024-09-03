@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50vh;
+  background: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+}
+
+.play-icon {
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.play-icon::before {
+  content: '';
+  border-style: solid;
+  border-width: 20px 0 20px 30px;
+  border-color: transparent transparent transparent #333333;
+  position: absolute;
+  left: 35px;
+}
+
+.play-icon.loading {
+  background-color: transparent;
+  border: 8px solid #333333;
+  border-radius: 50%;
+  border-top: 8px solid transparent;
+  width: 80px;
+  height: 80px;
+  transform: scale(1.2); /* Slightly larger circle */
+  animation: spin 1s linear infinite;
+}
+
+.play-icon.loading::before {
+  content: none; /* Remove the play triangle */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.3s ease-in forwards;
+}
+body {
+  font-family: 'Inter', Arial, sans-serif;
+}

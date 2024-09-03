@@ -1,0 +1,21 @@
+from enum import Enum
+
+class GenreEnum(Enum):
+    ACTION = 'Action'
+    COMEDY = 'Comedy'
+    DRAMA = 'Drama'
+    HORROR = 'Horror'
+    SCIFI = 'Sci-Fi'
+    ROMANCE = 'Romance'
+    BIOGRAPHY = 'Biography'
+    THRILLER = 'Thriller'
+    WESTERN = 'Western'
+    CRIME = 'Crime'
+    ADVENTURE = 'Adventure'
+    FANTASY = 'Fantasy'
+    ANIMATION = 'Animation'
+    DOCUMENTARY = 'Documentary'
+    MUSICAL = 'Musical'
+    WAR = 'War'
+    HISTORY = 'History'
+    DISASTER = 'Disaster'
