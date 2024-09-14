@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4be45284-20a7-45c3-826e-3016d14e5b69" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/postcss.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SelectSeats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SelectSeats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SuccessPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SuccessPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/movies/MovieDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/movies/MovieDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/payment/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/payment/Payment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/tickets/Tickets.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/tickets/Tickets.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/apollo-client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/apollo-client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/forgot-password/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/forgot-password/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/locations/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/locations/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/movies/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/movies/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/movies/a/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/movies/a/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/payment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/payment/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/register/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/reset-password/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/reset-password/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/select-seats/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/select-seats/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/settings/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/settings/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/success/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/success/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/support/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/support/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/tickets/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/tickets/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2lpGrZBfBdssLoagaQykgL9iURr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/maste/Desktop/New folder (4)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4be45284-20a7-45c3-826e-3016d14e5b69" name="Changes" comment="" />
+      <created>1725869803861</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725869803861</updated>
+      <workItem from="1725869807124" duration="140000" />
+    </task>
+    <servers />
+  </component>
+</project>

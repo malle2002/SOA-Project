@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import SelectSeats from '@/components/SelectSeats';
+import SelectSeats from '../../components/SelectSeats';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 

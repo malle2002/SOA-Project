@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import EmailFormRequestResetPassowrd from '@/components/reset_password/EmailFormRequestResetPassowrd';
+import EmailFormRequestResetPassowrd from '../../components/reset_password/EmailFormRequestResetPassowrd';
 
 const RegisterPage = () => {
     return (

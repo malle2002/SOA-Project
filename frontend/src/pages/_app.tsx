@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
-import client from '@/lib/apollo-client';
+import client from "../lib/apollo-client"
 //import { Inter } from 'next/font/google'
 import Layout from '../components/layout'
 import "../app/globals.css"

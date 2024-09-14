@@ -1,4 +1,4 @@
-import Profile from '@/components/settings/Profile';
+import Profile from '../../components/settings/Profile';
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';

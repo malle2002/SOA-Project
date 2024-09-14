@@ -1,8 +1,6 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import Google from 'next-auth/providers/google';
-import { gql } from '@apollo/client';
-import client from '@/lib/apollo-client';
 
 const secret = process.env.NEXTAUTH_SECRET as string;
 

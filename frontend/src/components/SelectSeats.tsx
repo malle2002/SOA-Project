@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import Image from 'next/image';
 import SeatGrid from './seats/SeatGrid';
-import DurationFormat from '@/lib/DurationFormat';
-import FormatDateTime from '@/lib/FormatDateTime'
-import client from '@/lib/apollo-client';
+import DurationFormat from '../lib/DurationFormat';
+import FormatDateTime from '../lib/FormatDateTime'
+import client from '../lib/apollo-client';
 import { RotateLoader } from 'react-spinners';
 
 interface QueryProps{

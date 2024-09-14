@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import ResetPassword from '@/components/reset_password/ResetPassword';
+import ResetPassword from '../../components/reset_password/ResetPassword';
 
 const RegisterPage = () => {
     return (

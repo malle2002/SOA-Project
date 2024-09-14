@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import Register from '@/components/register/Register';
+import Register from '../../components/register/Register';
 
 const RegisterPage = () => {
     return (

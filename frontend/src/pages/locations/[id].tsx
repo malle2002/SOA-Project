@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import ScheduleItem from "@/components/schedule/ScheduleItem";
+import ScheduleItem from "../../components/schedule/ScheduleItem";
 import { useSession } from "next-auth/react";
 import { RotateLoader } from "react-spinners";
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { PayPalButtons } from '@paypal/react-paypal-js';
-import FormatDateTime from '@/lib/FormatDateTime';
+import FormatDateTime from '../../lib/FormatDateTime';
 import { useSession } from 'next-auth/react';
 import { RotateLoader } from 'react-spinners';
 

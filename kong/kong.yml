@@ -1,0 +1,23 @@
+_format_version: "2.1"
+
+services:
+  - name: user-service
+    url: http://user-service:5000
+    routes:
+      - name: userservice-route
+        paths:
+          - /user-service
+
+  - name: cinema-service
+    url: http://cinema-service:4000
+    routes:
+      - name: cinemaservice-route
+        paths:
+          - /cinema-service
+
+  - name: notifications-service
+    url: http://notifications-service:8085
+    routes:
+      - name: notifications-service-route
+        paths:
+          - /notifications-service

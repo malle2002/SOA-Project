@@ -1,4 +1,4 @@
-import SuccessPage from '@/components/SuccessPage';
+import SuccessPage from '../../components/SuccessPage';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';

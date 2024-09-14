@@ -1,8 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
 import React from 'react';
-import DurationFormat from '@/lib/DurationFormat';
-import FormatDateTime from '@/lib/FormatDateTime';
+import DurationFormat from '../lib/DurationFormat';
+import FormatDateTime from '../lib/FormatDateTime';
 import { useSession } from 'next-auth/react';
 import { RotateLoader } from 'react-spinners';
 

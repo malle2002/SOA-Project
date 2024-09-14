@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import Support from '@/components/support/Support';
+import Support from '../../components/support/Support';
 
 const SupportPage = () => {
   const router = useRouter()

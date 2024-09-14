@@ -2,7 +2,7 @@
 import React, { useState,useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { gql, useQuery } from '@apollo/client';
-import client from '@/lib/apollo-client';
+import client from "../lib/apollo-client"
 import Image from 'next/image';
 import Link from 'next/link';
 import { RotateLoader } from 'react-spinners';

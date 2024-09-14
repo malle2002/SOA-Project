@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import { useQuery, gql, useMutation } from '@apollo/client';
-import DurationFormat from '@/lib/DurationFormat';
+import DurationFormat from '../../lib/DurationFormat';
 import VideoPlayer from './VideoPlayer';
 import RatingComponent from './RatingComponent';
 import Image from 'next/image';

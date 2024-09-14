@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import Payment from '@/components/payment/Payment';
+import Payment from '../../components/payment/Payment';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
