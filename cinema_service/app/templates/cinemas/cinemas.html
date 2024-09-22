@@ -4,7 +4,7 @@
     <div></div>
     <h1 class="text-center">
       Cinema
-      <a href="/admin/cinemas/add">
+      <a href="/cinema-service/admin/cinemas/add">
         <svg
           enable-background="new 0 0 512 512"
           height="3vh"
@@ -59,11 +59,11 @@
       <tbody>
         {% for cinema in cinemas %}
         <tr>
-          <td><a href="/admin/cinemas/{{cinema.id}}/schedule">{{ cinema.id }}</a></td>
+          <td><a href="/cinema-service/admin/cinemas/{{cinema.id}}/schedule">{{ cinema.id }}</a></td>
           <td>{{ cinema.name }}</td>
           <td>{{ cinema.location }}</td>
           <td>
-            <form action="/admin/cinemas/{{ cinema.id }}/delete" method="POST">
+            <form action="/cinema-service/admin/cinemas/{{ cinema.id }}/delete" method="POST">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
               <button
                 type="submit"
@@ -85,7 +85,7 @@
             </form>
           </td>
           <td>
-            <a href="/admin/cinemas/{{cinema.id}}/edit">
+            <a href="/cinema-service/admin/cinemas/{{cinema.id}}/edit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"

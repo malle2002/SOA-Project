@@ -4,7 +4,7 @@
     <div></div>
     <h1 class="text-center">
       User
-      <a href="/admin/users/add">
+      <a href="/cinema-service/admin/users/add">
         <svg
           enable-background="new 0 0 512 512"
           height="3vh"
@@ -64,7 +64,10 @@
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
           <td>
-            <form action="/admin/users/{{ user.id }}/delete" method="POST">
+            <form
+              action="/cinema-service/admin/users/{{ user.id }}/delete"
+              method="POST"
+            >
               <button
                 type="submit"
                 class="btn m-0 p-0"
@@ -85,7 +88,7 @@
             </form>
           </td>
           <td>
-            <a href="/admin/users/{{user.id}}/edit">
+            <a href="/cinema-service/admin/users/{{user.id}}/edit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"

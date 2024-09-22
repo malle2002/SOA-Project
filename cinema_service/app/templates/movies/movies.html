@@ -4,7 +4,7 @@
     <div></div>
     <h1 class="text-center">
       Movie
-      <a href="/admin/movies/add">
+      <a href="/cinema-service/admin/movies/add">
         <svg
           enable-background="new 0 0 512 512"
           height="3vh"
@@ -66,7 +66,10 @@
           <td>{{ movie.genres | join(', ') }}</td>
           <td>{{ movie.duration }}</td>
           <td>
-            <form action="/admin/movies/{{ movie.id }}/delete" method="POST">
+            <form
+              action="/cinema-service/admin/movies/{{ movie.id }}/delete"
+              method="POST"
+            >
               <input
                 type="hidden"
                 name="csrf_token"
@@ -92,7 +95,7 @@
             </form>
           </td>
           <td>
-            <a href="/admin/movies/{{movie.id}}/edit">
+            <a href="/cinema-service/admin/movies/{{movie.id}}/edit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"

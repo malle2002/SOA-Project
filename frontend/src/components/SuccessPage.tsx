@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import DurationFormat from '../lib/DurationFormat';
 import FormatDateTime from '../lib/FormatDateTime';
 import { useSession } from 'next-auth/react';
@@ -43,6 +43,40 @@ const SuccessPage = () => {
     const { data: session } = useSession()
 
     const { data, error, loading } = useQuery(FETCH_TICKET, { variables: { id : id }})
+
+    let email = session?.user?.email
+    let uid = session?.id
+    let fetchTicket = data?.fetchTicket
+
+    useEffect(() => {
+        console.log({email,uid,fetchTicket})
+        if (fetchTicket && fetchTicket.user === uid) {
+            const sendEmail = async () => {
+                const response = await fetch('http://localhost:8000/orders-service/api/orders/sendMail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        to: email,
+                        subject: 'Ordered successfully',
+                        text: `Thank you for your order! Here are your ticket details: 
+                               Movie: ${fetchTicket.movie.title}
+                               Cinema: ${fetchTicket.cinema.name}
+                               Seats: ${fetchTicket.seats.map((seat:SeatType) => `${seat.seatGroup}: Row ${seat.row} - Column ${seat.column}`).join(', ')}
+                               Reserved At: ${FormatDateTime(fetchTicket.reservedAt)}`,
+                    }),
+                });
+
+                if (!response.ok) {
+                    console.error(response)
+                    console.error('Failed to send email');
+                }
+            };
+
+            sendEmail();
+        }
+    }, [email,fetchTicket,uid]);
 
     if(loading) return (
         <div className='absolute top-1/2 left-1/2 right-1/2 bottom-1/2'>

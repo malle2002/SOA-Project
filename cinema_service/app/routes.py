@@ -17,10 +17,10 @@ from datetime import datetime
 from flask import current_app
 from collections import defaultdict
 
-users_bp = Blueprint('users', __name__, url_prefix='/admin/users')
-movies_bp = Blueprint('movies', __name__, url_prefix='/admin/movies')
-cinemas_bp = Blueprint('cinemas', __name__, url_prefix='/admin/cinemas')
-actors_bp = Blueprint('actors', __name__, url_prefix='/admin/actors')
+users_bp = Blueprint('users', __name__, url_prefix='/cinema-service/admin/users')
+movies_bp = Blueprint('movies', __name__, url_prefix='/cinema-service/admin/movies')
+cinemas_bp = Blueprint('cinemas', __name__, url_prefix='/cinema-service/admin/cinemas')
+actors_bp = Blueprint('actors', __name__, url_prefix='/cinema-service/admin/actors')
 
 def format_seat(seat):
     return f'{{row: {seat["row"]}, column: {seat["column"]}, isTaken: {str(seat.get("isTaken", False)).lower()}}}'

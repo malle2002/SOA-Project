@@ -31,13 +31,11 @@ public class OrderConsumer {
             log.info("Received following message: " + message);
             OrderNotification orderNotification = objectMapper.readValue(message, OrderNotification.class);
             if (orderNotification.getOrderedOn() != null) {
-                System.out.println("Kafka should save");
                 orderNotificationService.createOrderNotification(orderNotification);
-                System.out.println("kafka saved");
             } else {
-                mailService.sendMail(orderNotification.getRecipientEmail(),
-                        "Post Notification",
-                        orderNotification.getDetails());
+                mailService.sendMail(orderNotification.getTo(),
+                        "Order Notification",
+                        orderNotification.getText());
             }
 
         } catch (JsonProcessingException e) {

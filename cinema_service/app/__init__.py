@@ -26,8 +26,8 @@ def create_app():
     socketio.init_app(app)
     mail = Mail(app)
     mail.init_app(app)
-    csrf = CSRFProtect(app) ## "https://cinemation-3.vercel.app", 
-    CORS(app, resources={r"/graphql": {"origins": ["http://localhost:3000"]}})
+    csrf = CSRFProtect(app)
+    CORS(app, resources={r"/*": {"origins": ["http://localhost"]}}, supports_credentials=True)
     jwt = JWTManager(app)
     Session(app)
     cloudinary.config(
@@ -60,7 +60,7 @@ def create_app():
     def inject_current_url():
          return {'current_url': request.path}
     
-    @app.route('/admin', methods=["GET"])
+    @app.route('/cinema-service/admin', methods=["GET"])
     @jwt_required()
     def admin_panel():
         token = request.cookies.get('access_token_cookie')
@@ -70,15 +70,15 @@ def create_app():
                 expiration_time = datetime.fromtimestamp(decoded_token['exp'])
                 current_time = datetime.now()
                 if expiration_time < current_time:
-                    return redirect('/login')
+                    return redirect('/cinema-service/login')
                 else:
                     return render_template('admin.html')
             except:
-                return redirect('/login')
+                return redirect('/cinema-service/login')
         else:
-            return redirect('/login')
+            return redirect('/cinema-service/login')
 
-    @app.route('/admin/add', methods=['GET','POST'])
+    @app.route('/cinema-service/admin/add', methods=['GET','POST'])
     @jwt_required
     def admin_add():
         form = AddAdminForm()
@@ -106,20 +106,21 @@ def create_app():
 
         return render_template('/admin/add_admin.html', form=form)
     
-    @app.route('/graphql', methods=['GET', 'POST', 'OPTIONS'])
+    @app.route('/cinema-service/graphql', methods=['GET', 'POST', 'OPTIONS'])
     @csrf.exempt
     def graphql():
         if request.method == 'OPTIONS':
             response = jsonify({}) ##'https://cinemation-3.vercel.app'
-            response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
+            response.headers.add('Access-Control-Allow-Origin', "http://localhost")
             response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
             response.headers.add('Access-Control-Allow-Methods', 'GET, POST')
+            response.headers.add('Access-Control-Allow-Credentials', 'true')
             return response
         else:
             view = GraphQLView.as_view('graphql', schema=schema)
             return view()
 
-    @app.route('/login', methods=['GET', 'POST'])
+    @app.route('/cinema-service/login', methods=['GET', 'POST'])
     @csrf.exempt
     def login():
         if request.method == 'GET':
@@ -160,7 +161,7 @@ def create_app():
             if data['ok']==True:
                 access_token = data['auth']['accessToken']
                 session['access_token'] = access_token
-                response = redirect('/admin')
+                response = redirect('/cinema-service/admin')
                 response.set_cookie('access_token_cookie', access_token)
                 return response
             else:
@@ -171,8 +172,8 @@ def create_app():
     app.register_blueprint(users_bp)
     app.register_blueprint(actors_bp)
     
-    @app.route('/', defaults={'path': ''})
-    @app.route('/<path:path>')
+    @app.route('/cinema-service/', defaults={'path': ''})
+    @app.route('/cinema-service/<path:path>')
     def catch_all(path):
         return redirect(url_for('login'))
     

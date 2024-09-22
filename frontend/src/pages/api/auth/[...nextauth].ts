@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         const { username, password } = credentials || { username: null, password: null };
         try {
-          const response = await fetch('http://localhost:8080/api/auth/login', {
+          const response = await fetch('http://localhost:8000/user-service/api/auth/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -104,9 +104,7 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      if (url.startsWith("/")) return `${baseUrl}${url}`
-      else if (new URL(url).origin === baseUrl) return url
-      return baseUrl
+      return 'http://localhost'
     },
   },
   secret,

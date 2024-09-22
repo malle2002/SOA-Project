@@ -13,11 +13,35 @@ services:
     routes:
       - name: cinemaservice-route
         paths:
-          - /cinema-service
+          - /
+          - /login
+          - /admin
+          - /graphql
+          - /admin/add
+          - /admin/users
+          - /admin/movies
+          - /admin/cinemas
+          - /admin/actors
 
-  - name: notifications-service
-    url: http://notifications-service:8085
+  - name: orders-service
+    url: http://orders-service:6000
     routes:
-      - name: notifications-service-route
+      - name: orders-service-route
         paths:
-          - /notifications-service
+          - /orders-service
+
+plugins:
+  - name: cors
+    service: cinema-service
+    config:
+      origins:
+        - "http://localhost"
+      methods:
+        - "GET"
+        - "POST"
+        - "OPTIONS"
+      headers:
+        - "Content-Type"
+        - "Authorization"
+      max_age: 3600
+      credentials: true
