@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Document(collection = "order-notifications")
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderNotification {
+public class OrderNotification implements Serializable {
     @MongoId
     private String id;
 

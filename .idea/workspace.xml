@@ -2,37 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be45284-20a7-45c3-826e-3016d14e5b69" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/postcss.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SelectSeats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SelectSeats.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SuccessPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SuccessPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/movies/MovieDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/movies/MovieDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/payment/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/payment/Payment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/tickets/Tickets.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/tickets/Tickets.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/apollo-client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/apollo-client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/forgot-password/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/forgot-password/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/locations/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/locations/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/movies/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/movies/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/movies/a/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/movies/a/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/payment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/payment/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/reset-password/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/reset-password/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/select-seats/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/select-seats/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/settings/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/settings/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/success/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/success/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/support/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/support/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/tickets/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/tickets/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/mk/ukim/mk/order_service/service/impl/MailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order_service/src/main/java/mk/ukim/mk/order_service/service/impl/MailServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2lpGrZBfBdssLoagaQykgL9iURr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -56,11 +34,20 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/maste/Desktop/New folder (4)",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/maste/Downloads/New folder (4)/New folder (4)/order_service",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,7 +57,11 @@
       <option name="presentableId" value="Default" />
       <updated>1725869803861</updated>
       <workItem from="1725869807124" duration="140000" />
+      <workItem from="1727806776618" duration="150000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

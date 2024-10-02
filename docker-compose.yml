@@ -6,17 +6,19 @@ services:
     container_name: user-service
     networks:
       - kong-net
+      - web-frontend
 
   cinema-service:
     build:
       context: cinema_service
       dockerfile: Dockerfile
-    container_name: cinema-service
     env_file:
       - ./cinema_service/.env
     networks:
       - kong-net
       - web-frontend
+    deploy:
+      replicas: 2
 
   frontend:
     build:
@@ -77,6 +79,7 @@ services:
     networks:
       - kafka-net
       - kong-net
+      - web-frontend
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest

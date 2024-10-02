@@ -24,7 +24,7 @@ public class OrderConsumer {
         this.objectMapper = objectMapper;
         this.mailService = mailService;
     }
-    @KafkaListener(topics = "orders")
+    @KafkaListener(topics = "orders", groupId = "orders-group")
     public void receiveNotificationMessage(String message) {
 
         try {

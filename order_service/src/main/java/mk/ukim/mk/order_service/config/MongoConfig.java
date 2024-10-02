@@ -10,6 +10,6 @@ public class MongoConfig {
 
     @Bean
     public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(MongoClients.create("mongodb+srv://malle2002:atanas123@cluster0.8eip8.mongodb.net/"), "cinema_db");
+        return new MongoTemplate(MongoClients.create("mongodb+srv://malle2002:atanas123@cinemationcluster.tlsbbt8.mongodb.net/"), "cinemacollection");
     }
 }
